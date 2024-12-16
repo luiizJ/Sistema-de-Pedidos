@@ -3,6 +3,7 @@ import type { Product } from "@/types/product"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
 import { ToastAction } from "@radix-ui/react-toast"
+import { useCartStore } from "@/stores/cart-store"
 
 type Props ={
   item: Product
@@ -10,8 +11,10 @@ type Props ={
 
 export const ProductItem =({item}:Props) =>{
     const {toast} = useToast();
+    const {upsertCartItem} = useCartStore(state => state);
     const handleAddButton = () =>{
       // adicionar item no storage
+      upsertCartItem(item, 1);
       //exibir aviso
       toast({
         title:'Adicionado ao carrinho!',
