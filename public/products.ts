@@ -155,4 +155,67 @@ export const products: Product[] = [
         image: '/images/Hamburger/burger4.png',
         price: 81
     },
+     {
+        id: 34,
+        category: 'Temaki',
+        name: 'Temaki1',
+        image: '/images/temaki/Temaki1.png',
+        price: 81
+    },
+    {
+        id: 35,
+        category: 'Temaki',
+        name: 'Temaki',
+        image: '/images/temaki/Temaki2.png',
+        price: 81
+    },
+    {
+        id: 36,
+        category: 'Temaki',
+        name: 'Temaki',
+        image: '/images/temaki/Temaki3.png',
+        price: 81
+    },
+    {
+        id: 37,
+        category: 'Temaki',
+        name: 'Temaki',
+        image: '/images/temaki/Temaki4.png',
+        price: 81
+    },
+    {
+        id: 38,
+        category: 'Temaki',
+        name: 'Temaki',
+        image: '/images/temaki/Temaki5.png',
+        price: 81
+    },
+    {
+        id: 39,
+        category: 'Temaki',
+        name: 'Temaki',
+        image: '/images/temaki/Temaki6.png',
+        price: 81
+    },
+    {
+        id: 40,
+        category: 'Temaki',
+        name: 'Temaki',
+        image: '/images/temaki/Temaki7.png',
+        price: 81
+    },
+    {
+        id: 41,
+        category: 'Temaki',
+        name: 'Temaki',
+        image: '/images/temaki/Temaki8.png',
+        price: 81
+    },
+    {
+        id: 42,
+        category: 'Temaki',
+        name: 'Temaki',
+        image: '/images/temaki/Temaki9.png',
+        price: 81
+    },
 ];
