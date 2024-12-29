@@ -5,9 +5,12 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../u
 import { Separator } from "../ui/separator"
 import { useCartStore } from "@/stores/cart-store"
 import { CartItem } from "./CartItem"
+import { useState } from "react"
+import { ChekoutDialog } from "../Checkout/ChekoutDialog"
 
 export const Sidebar = () =>{
 
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
   const {cart} = useCartStore(state => state);
 
   let subtotal = 0
@@ -43,9 +46,13 @@ export const Sidebar = () =>{
                   <Separator className="my-4"/>
                   <div className="text-center">
                     <Button
+                    onClick={()=>setCheckoutOpen(true)}
                     disabled ={cart.length === 0}
                     >finalizar Comprar</Button>
                   </div>
+                  <ChekoutDialog
+                   open={checkoutOpen}
+                   onOpenChange ={setCheckoutOpen}/>
           </SheetContent>
     </Sheet>
   )
