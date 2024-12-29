@@ -96,7 +96,8 @@ export const StepAddress = ({setStep}: Props)=>{
                     <SelectTrigger>
                       <SelectValue placeholder="Estado"/>
                     </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent
+                        className="max-h-48 overflow-y-scroll" >
                         <SelectItem value="ac">Acre</SelectItem>
                         <SelectItem value="al">Alagoas</SelectItem>
                         <SelectItem value="ap">Amapá</SelectItem>
