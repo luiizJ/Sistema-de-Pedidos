@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import {Inter as FontSans} from "next/font/google"
+import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 
-export const fontSans = FontSans({
-  subsets:["latin"],
-  variable:"--font-sans"
-})
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,16 +21,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
-            <ThemeProvider
-             attribute="class"
-             defaultTheme="system"
-             enableSystem
-             disableTransitionOnChange
-            >
-              {children}
-            <Toaster/>
-            </ThemeProvider>
+      <body className={fontSans.variable}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
