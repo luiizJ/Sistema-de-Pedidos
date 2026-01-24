@@ -9,11 +9,9 @@ export const StepFinish = () => {
 
   const msg = generateMessage();
 
-  // Acesso seguro às variáveis de ambiente
   const zapNumber = process.env.NEXT_PUBLIC_ZAP;
   const pixKey = process.env.NEXT_PUBLIC_PIX_KEY;
 
-  // Previne o erro de "undefined" na URL caso a ENV não esteja carregada
   const linkWPP = zapNumber
     ? `https://wa.me/${zapNumber}?text=${encodeURIComponent(msg)}`
     : "#";
@@ -24,14 +22,13 @@ export const StepFinish = () => {
         Perfeito, <strong>{name}</strong>!
       </p>
 
-      {/* Condicional para PIX */}
       {payment.method === "pix" && (
         <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
           <p className="text-sm font-bold mb-2 text-primary">
             Chave PIX para pagamento:
           </p>
           <code className="block bg-background p-2 rounded text-xs border select-all font-mono break-all">
-            {pixKey || "Chave PIX não configurada no .env"}
+            {pixKey || "Chave PIX não configurada"}
           </code>
           <p className="text-[10px] mt-2 italic text-muted-foreground">
             Copie a chave acima e envie o comprovante após clicar no botão
@@ -40,23 +37,15 @@ export const StepFinish = () => {
         </div>
       )}
 
-      {/* Condicional para Cartão */}
       {payment.method === "card" && (
-        <div className="p-4 bg-secondary/50 rounded-lg border border-dashed">
-          <p className="text-sm">
-            💳 O pagamento será realizado via <strong>Cartão</strong>{" "}
-            diretamente com o entregador.
-          </p>
+        <div className="p-4 bg-secondary/50 rounded-lg border border-dashed text-sm">
+          💳 Pagamento via <strong>Cartão</strong> na entrega.
         </div>
       )}
 
-      {/* Condicional para Dinheiro */}
       {payment.method === "cash" && (
-        <div className="p-4 bg-secondary/50 rounded-lg border border-dashed">
-          <p className="text-sm">
-            💵 O pagamento será realizado em <strong>Dinheiro</strong> no ato da
-            entrega.
-          </p>
+        <div className="p-4 bg-secondary/50 rounded-lg border border-dashed text-sm">
+          💵 Pagamento em <strong>Dinheiro</strong> na entrega.
         </div>
       )}
 
@@ -64,19 +53,31 @@ export const StepFinish = () => {
         Clique no botão abaixo para enviar o pedido para o nosso WhatsApp.
       </p>
 
-      <Button
-        asChild
-        size="lg"
-        className="w-full font-bold shadow-lg transition-transform active:scale-95"
-        disabled={!zapNumber}
-      >
-        <a target="_blank" href={linkWPP} rel="noopener noreferrer">
-          🚀 FINALIZAR E ENVIAR PEDIDO
-        </a>
-      </Button>
+      {/* Correção do Botão: Se não houver zapNumber, ele renderiza um botão desativado */}
+      {!zapNumber ? (
+        <Button
+          size="lg"
+          className="w-full font-bold opacity-50 cursor-not-allowed"
+          disabled
+        >
+          🚀 CONFIGURAÇÃO PENDENTE
+        </Button>
+      ) : (
+        <Button
+          asChild
+          size="lg"
+          className="w-full font-bold shadow-lg transition-transform active:scale-95"
+        >
+          <a target="_blank" href={linkWPP} rel="noopener noreferrer">
+            🚀 FINALIZAR E ENVIAR PEDIDO
+          </a>
+        </Button>
+      )}
 
       {!zapNumber && (
-        <p className="text-[10px] text-destructive font-bold">ERRO:</p>
+        <p className="text-[10px] text-destructive font-bold uppercase">
+          Erro: Verifique o número de WhatsApp no arquivo
+        </p>
       )}
     </div>
   );
