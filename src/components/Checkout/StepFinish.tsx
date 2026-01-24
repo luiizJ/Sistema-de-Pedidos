@@ -53,7 +53,6 @@ export const StepFinish = () => {
         Clique no botão abaixo para enviar o pedido para o nosso WhatsApp.
       </p>
 
-      {/* Correção do Botão: Se não houver zapNumber, ele renderiza um botão desativado */}
       {!zapNumber ? (
         <Button
           size="lg"
