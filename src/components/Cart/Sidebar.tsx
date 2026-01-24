@@ -1,59 +1,74 @@
-"use client"
-import { RocketIcon } from "lucide-react"
-import { Button } from "../ui/button"
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet"
-import { Separator } from "../ui/separator"
-import { useCartStore } from "@/stores/cart-store"
-import { CartItem } from "./CartItem"
-import { useState } from "react"
-import { ChekoutDialog } from "../Checkout/ChekoutDialog"
+"use client";
+import { RocketIcon } from "lucide-react";
+import { Button } from "../ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../ui/sheet";
+import { Separator } from "../ui/separator";
+import { useCartStore } from "@/stores/cart-store";
+import { CartItem } from "./CartItem";
+import { useState } from "react";
+import { ChekoutDialog } from "../Checkout/ChekoutDialog";
 
-export const Sidebar = () =>{
-
+export const Sidebar = () => {
   const [checkoutOpen, setCheckoutOpen] = useState(false);
-  const {cart} = useCartStore(state => state);
+  const { cart } = useCartStore((state) => state);
 
-  let subtotal = 0
+  let subtotal = 0;
   for (let item of cart) {
-    subtotal += item.quantity * item.product.price
+    subtotal += item.quantity * item.product.price;
   }
 
-  return(
-    <Sheet >
+  return (
+    <Sheet>
       <SheetTrigger asChild>
         <Button className="relative">
-          <RocketIcon className="mr-3"/>
-          <p>Carrinho</p>
-          {cart.length > 0 &&
+          <RocketIcon className="mr-3" />
+          <p>Meu Carrinho</p>
+          {cart.length > 0 && (
             <div className="absolute size-3 bg-red-600 rounded-full -right-1 -top-1"></div>
-          }
+          )}
         </Button>
       </SheetTrigger>
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle>Carrinho</SheetTitle>
-            </SheetHeader>
-                  <div className="flex flex-col gap-5 my-3">
-                    {cart.map(item =>(
-                      <CartItem key={item.product.id} item = {item}/>
-                    ))}
-                  </div>
-                  <Separator className="my-4"/>
-                  <div className="flex justify-between items-center text-xs">
-                    <div>Subtotal:</div>
-                    <div>{`R$ ${subtotal.toFixed(2)}`}</div>
-                  </div>
-                  <Separator className="my-4"/>
-                  <div className="text-center">
-                    <Button
-                    onClick={()=>setCheckoutOpen(true)}
-                    disabled ={cart.length === 0}
-                    >finalizar Comprar</Button>
-                  </div>
-                  <ChekoutDialog
-                   open={checkoutOpen}
-                   onOpenChange ={setCheckoutOpen}/>
-          </SheetContent>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Carrinho</SheetTitle>
+        </SheetHeader>
+        <div className="flex flex-col gap-5 my-3">
+          {cart.map((item) => (
+            <CartItem key={item.product.id} item={item} />
+          ))}
+        </div>
+        <Separator className="my-4" />
+        <div className="flex justify-between items-center text-xs">
+          {cart.length > 0 ? (
+            <>
+              <span className="font-medium">Subtotal:</span>
+              <span className="font-bold">{`R$ ${subtotal.toFixed(2)}`}</span>
+            </>
+          ) : (
+            <div className="w-full text-center text-muted-foreground italic">
+              Você ainda não tem itens no seu carrinho
+            </div>
+          )}
+        </div>
+        <Separator className="my-4" />
+        <div className="text-center">
+          {cart.length > 0 && (
+            <Button
+              onClick={() => setCheckoutOpen(true)}
+              disabled={cart.length === 0}
+            >
+              finalizar Comprar
+            </Button>
+          )}
+        </div>
+        <ChekoutDialog open={checkoutOpen} onOpenChange={setCheckoutOpen} />
+      </SheetContent>
     </Sheet>
-  )
-}
+  );
+};
