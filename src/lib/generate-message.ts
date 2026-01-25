@@ -16,7 +16,7 @@ export const generateMessage = () => {
   // CONDIÇÕES DE PAGAMENTO PARA O LOJISTA
   let paymentMsg = "";
   if (payment.method === "pix") {
-    paymentMsg = `💳 *Pagamento:* PIX (Cliente avisado para enviar comprovante)`;
+    paymentMsg = `💳 *Pagamento:* PIX (Enviar Comprovante)`;
   } else if (payment.method === "card") {
     paymentMsg = `💳 *Pagamento:* Cartão (maquininha na entrega)`;
   } else {
