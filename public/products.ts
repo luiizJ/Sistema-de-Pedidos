@@ -1,221 +1,267 @@
 import { Product } from "@/types/product";
 
 export const products: Product[] = [
-    {
-        id: 1,
-        category: 'sushi',
-        name: 'Sushi 1',
-        image: '/images/sushi/sushi1.png',
-        price: 49
-    },
-    {
-        id: 2,
-        category: 'sushi',
-        name: 'Sushi 2',
-        image: '/images/sushi/sushi2.png',
-        price: 49
-    },
-    {
-        id: 3,
-        category: 'sushi',
-        name: 'Sushi 3',
-        image: '/images/sushi/sushi3.png',
-        price: 49
-    },
-    {
-        id: 4,
-        category: 'sushi',
-        name: 'Sushi 4',
-        image: '/images/sushi/sushi4.png',
-        price: 49
-    },
-    {
-        id: 5,
-        category: 'sushi',
-        name: 'Sushi 5',
-        image: '/images/sushi/sushi5.png',
-        price: 49
-    },
-    {
-        id: 6,
-        category: 'sushi',
-        name: 'Sushi 6',
-        image: '/images/sushi/sushi6.png',
-        price: 49
-    },
-    {
-        id: 7,
-        category: 'sushi',
-        name: 'Sushi 7',
-        image: '/images/sushi/sushi7.png',
-        price: 49
-    },
-    {
-        id: 8,
-        category: 'sushi',
-        name: 'Sushi 8',
-        image: '/images/sushi/sushi8.png',
-        price: 49
-    },
-    {
-        id: 9,
-        category: 'sushi',
-        name: 'Sushi 9',
-        image: '/images/sushi/sushi9.png',
-        price: 49
-    },
-    {
-        id: 21,
-        category: 'pack',
-        name: 'Combo 1',
-        image: '/images/combo/combo1.png',
-        price: 81
-    },
-    {
-        id: 22,
-        category: 'pack',
-        name: 'Combo 2',
-        image: '/images/combo/combo2.png',
-        price: 81
-    },
-    {
-        id: 23,
-        category: 'pack',
-        name: 'Combo 3',
-        image: '/images/combo/combo3.png',
-        price: 81
-    },
-    {
-        id: 24,
-        category: 'pack',
-        name: 'Combo 4',
-        image: '/images/combo/combo4.png',
-        price: 81
-    },
-    {
-        id: 25,
-        category: 'pack',
-        name: 'Combo 5',
-        image: '/images/combo/combo5.png',
-        price: 81
-    },
-    {
-        id: 26,
-        category: 'pack',
-        name: 'Combo 6',
-        image: '/images/combo/combo6.png',
-        price: 81
-    },
-    {
-        id: 27,
-        category: 'pack',
-        name: 'Combo 7',
-        image: '/images/combo/combo7.png',
-        price: 81
-    },
-    {
-        id: 28,
-        category: 'pack',
-        name: 'Combo 8',
-        image: '/images/combo/combo8.png',
-        price: 81
-    },
-    {
-        id: 29,
-        category: 'pack',
-        name: 'Combo 9',
-        image: '/images/combo/combo9.png',
-        price: 81
-    },
-    {
-        id: 30,
-        category: 'Hamburger',
-        name: 'Hamburger1',
-        image: '/images/Hamburger/burger1.png',
-        price: 81
-    },
-    {
-        id: 31,
-        category: 'Hamburger',
-        name: 'Hamburger2',
-        image: '/images/Hamburger/burger2.png',
-        price: 81
-    },
-    {
-        id: 32,
-        category: 'Hamburger',
-        name: 'Hamburger3',
-        image: '/images/Hamburger/burger3.png',
-        price: 81
-    },
-    {
-        id: 33,
-        category: 'Hamburger',
-        name: 'Hamburger4',
-        image: '/images/Hamburger/burger4.png',
-        price: 81
-    },
-     {
-        id: 34,
-        category: 'Temaki',
-        name: 'Temaki1',
-        image: '/images/temaki/Temaki1.png',
-        price: 81
-    },
-    {
-        id: 35,
-        category: 'Temaki',
-        name: 'Temaki',
-        image: '/images/temaki/Temaki2.png',
-        price: 81
-    },
-    {
-        id: 36,
-        category: 'Temaki',
-        name: 'Temaki',
-        image: '/images/temaki/Temaki3.png',
-        price: 81
-    },
-    {
-        id: 37,
-        category: 'Temaki',
-        name: 'Temaki',
-        image: '/images/temaki/Temaki4.png',
-        price: 81
-    },
-    {
-        id: 38,
-        category: 'Temaki',
-        name: 'Temaki',
-        image: '/images/temaki/Temaki5.png',
-        price: 81
-    },
-    {
-        id: 39,
-        category: 'Temaki',
-        name: 'Temaki',
-        image: '/images/temaki/Temaki6.png',
-        price: 81
-    },
-    {
-        id: 40,
-        category: 'Temaki',
-        name: 'Temaki',
-        image: '/images/temaki/Temaki7.png',
-        price: 81
-    },
-    {
-        id: 41,
-        category: 'Temaki',
-        name: 'Temaki',
-        image: '/images/temaki/Temaki8.png',
-        price: 81
-    },
-    {
-        id: 42,
-        category: 'Temaki',
-        name: 'Temaki',
-        image: '/images/temaki/Temaki9.png',
-        price: 81
-    },
+  // --- SUSHI ---
+  {
+    id: 1,
+    category: "sushi",
+    name: "Sushi 1",
+    image: "/images/sushi/sushi1.png",
+    price: 24.9,
+    description:
+      "Uramaki clássico de salmão com cream cheese e cebolinha fresca.",
+  },
+  {
+    id: 2,
+    category: "sushi",
+    name: "Sushi 2",
+    image: "/images/sushi/sushi2.png",
+    price: 22.0,
+    description: "Hossomaki de atum fresco com arroz temperado no ponto certo.",
+  },
+  {
+    id: 3,
+    category: "sushi",
+    name: "Sushi 3",
+    image: "/images/sushi/sushi3.png",
+    price: 28.5,
+    description: "Niguiri de salmão maçaricado com um toque de azeite trufado.",
+  },
+  {
+    id: 4,
+    category: "sushi",
+    name: "Sushi 4",
+    image: "/images/sushi/sushi4.png",
+    price: 32.0,
+    description: "Joy de salmão com geleia de pimenta artesanal e gergelim.",
+  },
+  {
+    id: 5,
+    category: "sushi",
+    name: "Sushi 5",
+    image: "/images/sushi/sushi5.png",
+    price: 26.9,
+    description: "Uramaki de camarão empanado com crispy de couve por cima.",
+  },
+  {
+    id: 6,
+    category: "sushi",
+    name: "Sushi 6",
+    image: "/images/sushi/sushi6.png",
+    price: 35.0,
+    description: "Sashimi de salmão premium cortado em lâminas perfeitas.",
+  },
+  {
+    id: 7,
+    category: "sushi",
+    name: "Sushi 7",
+    image: "/images/sushi/sushi7.png",
+    price: 24.0,
+    description: "Hot roll crocante recheado com peixe branco e tarê.",
+  },
+  {
+    id: 8,
+    category: "sushi",
+    name: "Sushi 8",
+    image: "/images/sushi/sushi8.png",
+    price: 29.9,
+    description: "Combinado especial de niguiris variados do chef.",
+  },
+  {
+    id: 9,
+    category: "sushi",
+    name: "Sushi 9",
+    image: "/images/sushi/sushi9.png",
+    price: 19.9,
+    description: "Hossomaki de pepino e manga, opção leve e refrescante.",
+  },
+
+  // --- COMBOS ---
+  {
+    id: 21,
+    category: "pack",
+    name: "Combo 1",
+    image: "/images/combo/combo1.png",
+    price: 89.9,
+    description: "Box com 20 peças variadas: Uramakis, Niguiris e Hossomakis.",
+  },
+  {
+    id: 22,
+    category: "pack",
+    name: "Combo 2",
+    image: "/images/combo/combo2.png",
+    price: 75.0,
+    description: "Combinado de 15 peças focado em cortes de salmão premium.",
+  },
+  {
+    id: 23,
+    category: "pack",
+    name: "Combo 3",
+    image: "/images/combo/combo3.png",
+    price: 98.0,
+    description:
+      "Mix Hot: 24 peças de sushis fritos e crocantes com molho tarê.",
+  },
+  {
+    id: 24,
+    category: "pack",
+    name: "Combo 4",
+    image: "/images/combo/combo4.png",
+    price: 64.9,
+    description: "Combo Individual: 1 Temaki + 8 peças de Uramaki Salmão.",
+  },
+  {
+    id: 25,
+    category: "pack",
+    name: "Combo 5",
+    image: "/images/combo/combo5.png",
+    price: 72.0,
+    description: "Especial Veg: 20 peças sem origem animal, ricas em sabor.",
+  },
+  {
+    id: 26,
+    category: "pack",
+    name: "Combo 6",
+    image: "/images/combo/combo6.png",
+    price: 110.0,
+    description: "Degustação: 10 cortes de Sashimi e 10 Niguiris selecionados.",
+  },
+  {
+    id: 27,
+    category: "pack",
+    name: "Combo 7",
+    image: "/images/combo/combo7.png",
+    price: 145.0,
+    description:
+      "Combo Casal: 30 peças variadas com o melhor do nosso cardápio.",
+  },
+  {
+    id: 28,
+    category: "pack",
+    name: "Combo 8",
+    image: "/images/combo/combo8.png",
+    price: 55.0,
+    description: "Box executivo: 12 peças de sushis tradicionais + 1 Bebida.",
+  },
+  {
+    id: 29,
+    category: "pack",
+    name: "Combo 9",
+    image: "/images/combo/combo9.png",
+    price: 180.0,
+    description: "Super Pack: 40 peças para compartilhar com a família toda.",
+  },
+
+  // --- HAMBURGER ---
+  {
+    id: 30,
+    category: "Hamburger",
+    name: "Hamburger 1",
+    image: "/images/Hamburger/burger1.png",
+    price: 32.9,
+    description: "Burger de 180g, queijo cheddar derretido e maionese da casa.",
+  },
+  {
+    id: 31,
+    category: "Hamburger",
+    name: "Hamburger 2",
+    image: "/images/Hamburger/burger2.png",
+    price: 38.0,
+    description:
+      "Bacon Lovers: 2 blends suculentos, muito bacon e queijo prato.",
+  },
+  {
+    id: 32,
+    category: "Hamburger",
+    name: "Hamburger 3",
+    image: "/images/Hamburger/burger3.png",
+    price: 29.9,
+    description: "Salad Burger: Carne artesanal, alface, tomate e cebola roxa.",
+  },
+  {
+    id: 33,
+    category: "Hamburger",
+    name: "Hamburger 4",
+    image: "/images/Hamburger/burger4.png",
+    price: 45.0,
+    description:
+      "Monstruoso: 3 carnes, triplo queijo e pão de brioche tostado.",
+  },
+
+  // --- TEMAKI ---
+  {
+    id: 34,
+    category: "Temaki",
+    name: "Temaki 1",
+    image: "/images/temaki/Temaki1.png",
+    price: 34.0,
+    description:
+      "Salmão em cubos com cream cheese e cebolinha em cone crocante.",
+  },
+  {
+    id: 35,
+    category: "Temaki",
+    name: "Temaki 2",
+    image: "/images/temaki/Temaki2.png",
+    price: 36.9,
+    description: "Cone de Atum fresco picado com um toque leve de pimenta.",
+  },
+  {
+    id: 36,
+    category: "Temaki",
+    name: "Temaki 3",
+    image: "/images/temaki/Temaki3.png",
+    price: 39.0,
+    description: "Temaki de camarão empanado com molho especial e gergelim.",
+  },
+  {
+    id: 37,
+    category: "Temaki",
+    name: "Temaki 4",
+    image: "/images/temaki/Temaki4.png",
+    price: 32.0,
+    description: "Salmão Grelhado: Opção cozida com cream cheese e tarê.",
+  },
+  {
+    id: 38,
+    category: "Temaki",
+    name: "Temaki 5",
+    image: "/images/temaki/Temaki5.png",
+    price: 28.0,
+    description: "Skin Roll: Cone de pele de salmão grelhada super crocante.",
+  },
+  {
+    id: 39,
+    category: "Temaki",
+    name: "Temaki 6",
+    image: "/images/temaki/Temaki6.png",
+    price: 35.5,
+    description: "Mix Fish: Cone recheado com blend de salmão e peixe branco.",
+  },
+  {
+    id: 40,
+    category: "Temaki",
+    name: "Temaki 7",
+    image: "/images/temaki/Temaki7.png",
+    price: 38.0,
+    description:
+      "Especial do Chef: Salmão maçaricado e raspas de limão siciliano.",
+  },
+  {
+    id: 41,
+    category: "Temaki",
+    name: "Temaki 8",
+    image: "/images/temaki/Temaki8.png",
+    price: 31.9,
+    description: "Temaki de peixe branco empanado com maionese picante.",
+  },
+  {
+    id: 42,
+    category: "Temaki",
+    name: "Temaki 9",
+    image: "/images/temaki/Temaki9.png",
+    price: 29.0,
+    description:
+      "California: Manga, pepino e kani para um sabor leve e tropical.",
+  },
 ];
