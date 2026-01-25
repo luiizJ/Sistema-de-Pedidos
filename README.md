@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍔 FastFood System - Fullstack Delivery Experience
 
-## Getting Started
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-success?logo=vercel)](https://sistema-de-pedidos-wine.vercel.app/)
+[![Database: NeonDB](<https://img.shields.io/badge/Database-NeonDB%20(PostgreSQL)-blue?logo=postgresql>)](https://neon.tech/)
 
-First, run the development server:
+Solução de cardápio digital projetada para maximizar a conversão de pedidos através de uma interface de alta performance. Desenvolvido para atuar como o front-end de um modelo SaaS, focado em comércios que buscam agilidade e presença digital mobile-first.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Arsenal Tecnológico
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Biblioteca Base:** React (Componentização modular).
+- **Framework:** Next.js 15 (App Router, SSR/SSG para SEO otimizado).
+- **Linguagem:** TypeScript (Tipagem estrita e segurança de dados).
+- **Banco de Dados:** NeonDB (PostgreSQL Serverless para persistência escalável).
+- **ORM:** Drizzle ORM (Type-safe database operations).
+- **Estilização:** TailwindCSS & ShadCN/UI (Interface moderna e responsiva).
+- **Gerenciamento de Estado:** Zustand (Carrinho leve com sincronização de hidratação).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ⚙️ Funcionalidades Core
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Experiência de Compra (Client Side)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Cardápio Dinâmico:** Navegação intuitiva por categorias (Sushi, Hambúrguer, Bebidas) com interface responsiva.
+- **Carrinho Persistente:** Gestão de itens via Zustand, permitindo adição de quantidades e cálculo de subtotal instantâneo.
+- **Checkout Inteligente:** Fluxo de dados estruturado (Nome, Endereço e Forma de Pagamento) com integração direta ao WhatsApp.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 2. Gestão Administrativa (Server Side)
 
-## Deploy on Vercel
+- **Painel Protegido:** Área administrativa blindada por senha para controle total do estabelecimento.
+- **Real-time Status:** Alteração dinâmica do status da loja (Aberto/Fechado). Quando fechada, o sistema desabilita pedidos automaticamente via `revalidatePath`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛡️ Arquitetura e Segurança
+
+O projeto utiliza **Server Actions** com dupla camada de validação. Toda tentativa de alteração no banco de dados confere a autenticidade da senha no lado do servidor antes de processar a operação, garantindo a integridade dos dados e a segurança das configurações do lojista.
+
+A infraestrutura foi desenhada para **Zero Layout Shift** e performance otimizada, refletindo um mindset de alta performance tanto no hardware quanto no software.
+
+---
+
+## 🔧 Como Rodar o Projeto
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/luiizJ/Sistema-de-Pedidos.git](https://github.com/luiizJ/Sistema-de-Pedidos.git)
+    ```
+2.  **Instale as dependências:**
+    ```bash
+    pnpm install
+    ```
+3.  **Configure as variáveis de ambiente (.env.local):**
+    ```env
+    DATABASE_URL=sua_url_do_neondb
+    ADMIN_PASSWORD=sua_senha_secreta
+    ```
+4.  **Execute o servidor:**
+    ```bash
+    pnpm dev
+    ```
+
+---
+
+## 👤 Desenvolvedor
+
+**Luiz Everson** _Desenvolvedor Front-end / Tecnólogo em Análise e Desenvolvimento de Sistemas (UNIESP)_.
