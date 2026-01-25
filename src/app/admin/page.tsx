@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { LogOut } from "lucide-react"; // Se tiver o lucide-react instalado
 
 export default function AdminPage() {
   const [password, setPassword] = useState("");
@@ -15,25 +16,23 @@ export default function AdminPage() {
   const { isOpen, zapNumber, pixKey, setIsOpen, setZapNumber, setPixKey } =
     useConfigStore();
 
-  // Puxa direto do ambiente. Se não existir, trava por segurança.
   const ADMIN_PASS = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!ADMIN_PASS) {
-      alert("Erro crítico: Senha não configurada no servidor.");
-      return;
-    }
-
     if (password === ADMIN_PASS) {
       setIsAuthenticated(true);
     } else {
-      alert("Senha incorreta! Tente novamente.");
+      alert("Senha incorreta!");
     }
   };
 
-  // TELA DE LOGIN
+  // FUNÇÃO DE LOGOUT
+  const handleLogout = () => {
+    setIsAuthenticated(false); // Mata o acesso na hora
+    setPassword(""); // Limpa o campo de senha
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center p-4">
@@ -52,12 +51,11 @@ export default function AdminPage() {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Digite a senha mestra"
-                  autoFocus
+                  placeholder="Digite a senha"
                 />
               </div>
               <Button type="submit" className="w-full font-bold">
-                ENTRAR NO PAINEL
+                ENTRAR
               </Button>
             </form>
           </CardContent>
@@ -66,9 +64,21 @@ export default function AdminPage() {
     );
   }
 
-  // PAINEL ADMINISTRATIVO (Só aparece se estiver autenticado)
   return (
     <div className="min-h-screen bg-background p-8 flex flex-col items-center justify-center animate-in fade-in zoom-in duration-500">
+      {/* Botão de Sair no Topo */}
+      <div className="w-full max-w-md flex justify-end mb-4">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleLogout}
+          className="text-destructive hover:bg-destructive/10"
+        >
+          <LogOut className="w-4 h-4 mr-2" />
+          Sair do Painel
+        </Button>
+      </div>
+
       <Card className="w-full max-w-md shadow-2xl border-primary/20">
         <CardHeader className="text-center border-b mb-6">
           <CardTitle className="text-2xl font-bold tracking-tight">
@@ -80,12 +90,10 @@ export default function AdminPage() {
         </CardHeader>
 
         <CardContent className="space-y-8">
+          {/* ... (Seus campos de Switch, Zap e Pix aqui) ... */}
           <div className="flex items-center justify-between p-4 bg-secondary/30 rounded-lg border border-dashed">
             <div className="space-y-0.5">
               <Label className="text-base">Status da Loja</Label>
-              <p className="text-sm text-muted-foreground">
-                {isOpen ? "🟢 Aberta para pedidos" : "🔴 Fechada no momento"}
-              </p>
             </div>
             <Switch
               checked={isOpen}
@@ -95,36 +103,24 @@ export default function AdminPage() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="zap">WhatsApp do Estabelecimento</Label>
+            <Label>WhatsApp</Label>
             <Input
-              id="zap"
               value={zapNumber}
               onChange={(e) => setZapNumber(e.target.value)}
-              placeholder="Ex: 5583994189808"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="pix">Chave PIX para Recebimento</Label>
-            <Input
-              id="pix"
-              value={pixKey}
-              onChange={(e) => setPixKey(e.target.value)}
-              placeholder="E-mail ou CPF"
-            />
+            <Label>Chave PIX</Label>
+            <Input value={pixKey} onChange={(e) => setPixKey(e.target.value)} />
           </div>
 
           <p className="text-[10px] text-center text-muted-foreground italic">
-            Configurações salvas automaticamente no seu navegador.
+            Configurações salvas automaticamente. Clique em "Sair" para bloquear
+            o acesso.
           </p>
         </CardContent>
       </Card>
-      <a
-        href="/"
-        className="mt-8 text-sm text-primary hover:underline transition-all"
-      >
-        ← Voltar para a vitrine
-      </a>
     </div>
   );
 }
