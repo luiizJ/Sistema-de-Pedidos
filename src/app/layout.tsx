@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import type { Metadata } from "next";
+import { Inter as FontSans } from "next/font/google";
+import "./globals.css";
 
 // Importações do Banco de Dados
+import StoreInitializer from "@/components/StoreInitializer";
 import { db } from "@/db";
 import { storeConfig } from "@/db/schema";
 import { eq } from "drizzle-orm";
-import StoreInitializer from "@/components/StoreInitializer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -17,7 +17,7 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   title: "Sistema-De-Pedidos",
-  description: "Criado Por Luiz",
+  description: "Criado Por LZNV SYSTEMS",
 };
 
 export default async function RootLayout({

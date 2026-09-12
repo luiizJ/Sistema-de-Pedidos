@@ -12,7 +12,7 @@ export const Footer = () => {
           rel="noopener noreferrer"
           href="https://www.linkedin.com/in/luiizj/"
         >
-          Luiz
+          LZNV SYSTEMS
         </a>
       </div>
     </footer>
